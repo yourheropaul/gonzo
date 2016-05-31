@@ -11,7 +11,7 @@ import (
 func Background() Context {
 	return ctx{
 		Context: context.Background(),
-		Entry:   std,
+		Entry:   StdLogEntry,
 	}
 }
 
@@ -23,7 +23,7 @@ func WithCancel(parent Context) (Context, context.CancelFunc) {
 	if ctx, ok := parent.(*ctx); ok {
 		entry = ctx.Entry
 	} else {
-		entry = std
+		entry = StdLogEntry
 	}
 
 	ctx := ctx{
@@ -41,7 +41,7 @@ func WithDeadline(parent Context, deadline time.Time) (Context, context.CancelFu
 	if ctx, ok := parent.(*ctx); ok {
 		entry = ctx.Entry
 	} else {
-		entry = std
+		entry = StdLogEntry
 	}
 
 	ctx := &ctx{
@@ -59,7 +59,7 @@ func WithTimeout(parent Context, timeout time.Duration) (Context, context.Cancel
 	if ctx, ok := parent.(*ctx); ok {
 		entry = ctx.Entry
 	} else {
-		entry = std
+		entry = StdLogEntry
 	}
 
 	ctx := &ctx{
@@ -77,7 +77,7 @@ func WithValue(parent Context, key string, value interface{}) Context {
 	if ctx, ok := parent.(*ctx); ok {
 		entry = ctx.Entry
 	} else {
-		entry = std
+		entry = StdLogEntry
 	}
 
 	ctx := &ctx{

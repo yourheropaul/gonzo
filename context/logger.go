@@ -7,7 +7,7 @@ import (
 	"github.com/Sirupsen/logrus"
 )
 
-var std *logrus.Entry
+var StdLogEntry *logrus.Entry
 
 func init() {
 
@@ -29,7 +29,7 @@ func init() {
 	default:
 		l.Level = logrus.InfoLevel
 	}
-	std = logrus.NewEntry(l)
+	StdLogEntry = logrus.NewEntry(l)
 }
 
 type Logger interface {
